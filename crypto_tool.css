@@ -1,0 +1,405 @@
+
+/*---------------------------
+tool_0コンテンツの装飾
+----------------------------*/
+td.tool_web_toolbar
+{
+    height:5%;
+    width:100%;
+    padding:1%;
+    margin:0 auto;
+}
+
+table.tool_toolbar_panel
+{
+    width:100%;
+    height:100%;
+    padding:0%;
+    margin:0 auto;
+    border-spacing:1px;
+}
+
+td.tool_toolbar_btn
+{
+    height:auto;
+    width:25%;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    background-color: rgb(255, 175, 138);
+    background-size:100% 100%;
+    moz-background-size:100% 100%;
+    text-align:center;
+    color:rgb(255, 255, 255);
+    font-size:3vw;
+    font-weight: bold;
+    text-shadow: none;
+    padding:0%;
+    margin:0 auto;
+}
+
+td.tool_web_panel
+{
+    height:79%;
+    width:100%;
+    padding:3%;
+    margin:0 auto;
+    vertical-align: top;
+}
+
+table.tool_0_main
+{
+    width:100%;
+    height:100%;
+    padding:0%;
+    margin:0 auto;
+    border-spacing:1px;
+}
+
+td.tool_0_title
+{
+    height:auto;
+    width:100%;
+    border-radius: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    background-color: rgb(255, 175, 138);
+    background-size:100% 100%;
+    moz-background-size:100% 100%;
+    text-align:left;
+    color:rgb(255, 255, 255);
+    font-size:3vw;
+    font-weight: bold;
+    text-shadow: none;
+    padding:2%;
+    margin:0 auto;
+}
+
+td.tool_0_x
+{
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:3vw;
+    text-shadow: none;
+    font-weight: bold;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_y
+{
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    text-align: right;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:3vw;
+    text-shadow: none;
+    font-weight: bold;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_z
+{
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    background-color: rgb(255, 175, 138);
+    background-size:100% 100%;
+    moz-background-size:100% 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:3vw;
+    text-shadow: none;
+    font-weight: bold;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_e
+{
+    width:25%;
+    height:auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2vw;
+    text-shadow: none;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_f
+{
+    width:25%;
+    height:auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2vw;
+    text-shadow: none;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_g
+{
+    width:25%;
+    height:auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2vw;
+    text-shadow: none;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_h
+{
+    width:25%;
+    height:auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: rgb(177, 177, 177);
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2vw;
+    text-shadow: none;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_i
+{
+    width:25%;
+    height:auto;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    vertical-align: middle;
+    padding:0%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2vw;
+    text-shadow: none;
+    border: 1px rgb(136, 136, 136) solid;
+}
+
+td.tool_0_ta
+{
+    height:auto;
+    width:25%;
+    background-color: rgb(255, 208, 187);
+    text-align: center;
+    vertical-align: middle;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:3vw;
+    text-shadow: none;
+    font-weight: bold;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_tb
+{
+    height:auto;
+    width:25%;
+    background-color: rgb(255, 208, 187);
+    text-align: center;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2.5vw;
+    text-shadow: none;
+    font-weight: bold;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_tc
+{
+    height:auto;
+    width:25%;
+    background-color: rgb(255, 208, 187);
+    text-align: center;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2.5vw;
+    text-shadow: none;
+    font-weight: bold;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_td
+{
+    height:auto;
+    width:25%;
+    background-color: rgb(255, 208, 187);
+    text-align: center;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(136, 136, 136);
+    font-size:2.5vw;
+    text-shadow: none;
+    font-weight: bold;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_a
+{
+    height:auto;
+    width:25%;
+    text-align: left;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(119, 119, 119);
+    font-size:2.5vw;
+    text-shadow: none;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_b
+{
+    height:auto;
+    width:25%;
+    text-align: right;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(119, 119, 119);
+    font-size:2.5vw;
+    text-shadow: none;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_c
+{
+    height:auto;
+    width:25%;
+    text-align: right;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(119, 119, 119);
+    font-size:2.5vw;
+    text-shadow: none;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_d
+{
+    height:auto;
+    width:25%;
+    text-align: right;
+    padding:1%;
+    margin:0 auto;
+    color:rgb(119, 119, 119);
+    font-size:2.5vw;
+    text-shadow: none;
+    border-bottom: 1px rgb(255, 128, 69) solid;
+}
+
+td.tool_0_space
+{
+    height:5%;
+    width:100%;
+    padding:2%;
+    margin:0 auto;
+}
+
+p.tool_0
+{
+    padding:0%;
+    margin:0 auto;
+    color:rgb(119, 119, 119);
+    font-size:2vw;
+    text-shadow: none;
+}
+
+p.tool_0e
+{
+    padding:0%;
+    margin:0 auto;
+    color:rgb(119, 119, 119);
+    font-size:1vw;
+    text-shadow: none;
+}
+
+p.tool_0z
+{
+    padding:2%;
+    margin:0 auto;
+    color:rgb(255, 255, 255);
+    font-size:2vw;
+    text-shadow: none;
+}
+
+img.coin
+{
+    width:20%;
+}
+
+img.coin2
+{
+    width:10%;
+}
+
+iframe.tool_page_panel
+{
+    height:100%;
+    width:100%;
+    padding:0%;
+    margin:0 auto;
+    border:none;
+}
+
+table.tool_0_main2
+{
+    width:100%;
+    height:auto;
+    padding:0%;
+    margin:0 auto;
+    border-spacing:1px;
+}
+
+input.tool_page1
+{
+    height:99%;
+    width:99%;
+    color:rgb(119, 119, 119);
+    font-size:2vw;
+    text-shadow: none;
+    text-align: right;
+    padding:1%;
+    margin:0 auto;
+    border:none;
+}
