@@ -11,18 +11,21 @@
 <body>
 <!--メインコンテンツ部分-->
 
-<?php 
+<?php
+require_once("test.php");
+$GetAPI = new Crypto_Api();
 $m = trim(h($_GET['m']));
 if($m != 'list'){
 ?>
 
 
 <!-- ツール１のコンテンツ -->
+<form action="" method="post">
 <table class="tool_0_main2"><tbody>
 <tr>
 <td class="tool_0_e">購入金額</td>
-<td class="tool_0_i" colspan="2"><input id="" type="text" name="" placeholder="￥100,000" class="tool_page1"></input></td>
-<td class="tool_0_h"><p class="tool_0z">実行</p></td>
+<td class="tool_0_i" colspan="2"><input id="" type="text" name="investment_value" placeholder="￥100,000" class="tool_page1"></input></td>
+    <td class="tool_0_h"><p class="tool_0z"><button>実行</button></p></td>
 </tr>
 <tr>
 <td class="tool_0_e">表示利幅</td>
@@ -37,7 +40,7 @@ if($m != 'list'){
 </tr>
 <tr>
 <td class="tool_0_e">手数料設定</td>
-<td class="tool_0_i" colspan="2"><input id="" type="text" name="" placeholder="" class="tool_page1"></input></td>
+<td class="tool_0_i" colspan="2"><input id="" type="text" name="commission" placeholder="" class="tool_page1"></input></td>
 <td class="tool_0_h"><p class="tool_0z">設定</p></td>
 </tr>
 <tr><td class="tool_0_space" colspan="4"></td></tr>
@@ -53,16 +56,17 @@ if($m != 'list'){
 
 <tr>
 <td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTC<p class="tool_0e">ビットコイン</p></td>
-<td class="tool_0_b"><p class="tool_0">BTC/XRP</p><p class="tool_0">￥100,000</p></td>
+<td class="tool_0_b"><p class="tool_0">BTC/XRP</p><p class="tool_0"></p></td>
 <td class="tool_0_c"><p class="tool_0">XRP/JPY</p><p class="tool_0">￥100,368</p></td>
 <td class="tool_0_d"><p class="tool_0">￥368</p><p class="tool_0">0.37%</p></td>
 </tr>
 
 <tr>
 <td class="tool_0_a"><img src="./coin_icon/coin_2.png" class="coin">ETH<p class="tool_0e">イーサリアム</p></td>
-<td class="tool_0_b"><p class="tool_0">ETH/QASH</p><p class="tool_0">￥100,000</p></td>
-<td class="tool_0_c"><p class="tool_0">QASH/BTC</p><p class="tool_0">￥100,387</p></td>
-<td class="tool_0_d"><p class="tool_0">￥387</p><p class="tool_0">0.39%</p></td>
+<td class="tool_0_b"><p class="tool_0">ETH/BTC</p><p class="tool_0">￥<?php echo number_format($GetAPI->Eth_result()[1]) ?></p></td>
+<td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->Eth_result()[0]) ?></p></td>
+
+<td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->Eth_result()[0] - $GetAPI->Eth_result()[1]; ?></p><p class="tool_0"><?php echo number_format( ($GetAPI->Eth_result()[1] - $GetAPI->Eth_result()[0])  / empty(is_integer($_POST["investment_value"]) ? $GetAPI->default_investment() : $_POST["investment_value"] )); ?></p></td>
 </tr>
 
 <tr>
@@ -143,7 +147,7 @@ if($m != 'list'){
 </tbody></table>
 <!-- ツール１のコンテンツ -->
 
-
+</form>
 <?php 
 }
 ?>
