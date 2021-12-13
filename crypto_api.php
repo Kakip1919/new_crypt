@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 require __DIR__ . '/vendor/autoload.php';
 
@@ -58,8 +58,8 @@ Class Crypto_Api{
 
     public function Bch_result(): array
     {
-        $BCHJPY = $this->commission($this->get_api(114)->market_bid);
-        $BCHBTC = ($this->get_api(5)->market_bid * $this->commission($this->get_api(111)->market_bid));
+        $BCHJPY = $this->commission($this->get_api(41)->market_bid);
+        $BCHBTC = ($this->get_api(5)->market_bid * $this->commission($this->get_api(114)->market_bid));
         return [ceil(($this->investment / $BCHBTC) * $BCHJPY), ceil(($this->investment / $BCHJPY) * $BCHBTC)];
     }
 
