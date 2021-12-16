@@ -12,7 +12,8 @@
 <!--メインコンテンツ部分-->
 
 <?php
-require_once("test.php");
+ini_set('display_errors', "On");
+require_once("crypto_api.php");
 $GetAPI = new Crypto_Api();
 $m = trim(h($_GET['m']));
 if($m != 'list'){
@@ -54,52 +55,203 @@ if($m != 'list'){
 <td class="tool_0_td">スプレッド</td>
 </tr>
 
+
 <tr>
-<td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTC<p class="tool_0e">ビットコイン</p></td>
-<td class="tool_0_b"><p class="tool_0">BTC/XRP</p><p class="tool_0"></p></td>
-<td class="tool_0_c"><p class="tool_0">XRP/JPY</p><p class="tool_0">￥100,368</p></td>
-<td class="tool_0_d"><p class="tool_0">￥368</p><p class="tool_0">0.37%</p></td>
+    <td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTCETH<p class="tool_0e">BTC</p></td>
+    <td class="tool_0_b"><p class="tool_0">BTC/ETH</p><p class="tool_0">￥<?php echo number_format($GetAPI->ETHBTC_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->ETHBTC_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->ETHBTC_result()[0] - $GetAPI->ETHBTC_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->ETHBTC_result()[0] - $GetAPI->ETHBTC_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->ETHBTC_result()[0] - $GetAPI->ETHBTC_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
 </tr>
 
 <tr>
-<td class="tool_0_a"><img src="./coin_icon/coin_2.png" class="coin">ETH<p class="tool_0e">イーサリアム</p></td>
-<td class="tool_0_b"><p class="tool_0">ETH/BTC</p><p class="tool_0">￥<?php echo number_format($GetAPI->Eth_result()[1]) ?></p></td>
-<td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->Eth_result()[0]) ?></p></td>
+    <td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTCXRP<p class="tool_0e">BTC</p></td>
+    <td class="tool_0_b"><p class="tool_0">BTC/XRP</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCXRP_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">XRP/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCXRP_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->BTCXRP_result()[0] - $GetAPI->BTCXRP_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->BTCXRP_result()[0] - $GetAPI->BTCXRP_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->BTCXRP_result()[0] - $GetAPI->BTCXRP_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
 
-<td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->Eth_result()[0] - $GetAPI->Eth_result()[1]; ?></p><p class="tool_0"><?php echo number_format( ($GetAPI->Eth_result()[1] - $GetAPI->Eth_result()[0])  / empty(is_integer($_POST["investment_value"]) ? $GetAPI->default_investment() : $_POST["investment_value"] )); ?></p></td>
+
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTCQASH<p class="tool_0e">BTC</p></td>
+    <td class="tool_0_b"><p class="tool_0">BTC/QASH</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCQASH_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">QASH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCQASH_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->BTCQASH_result()[0] - $GetAPI->BTCQASH_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->BTCQASH_result()[0] - $GetAPI->BTCQASH_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->BTCQASH_result()[0] - $GetAPI->BTCQASH_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
 </tr>
 
 <tr>
-<td class="tool_0_a"><img src="./coin_icon/coin_4.png" class="coin">BCH<p class="tool_0e">ビットコインキャッシュ</p></td>
-<td class="tool_0_b"><p class="tool_0">BCH/BTC</p><p class="tool_0">￥100,000</p></td>
-<td class="tool_0_c"><p class="tool_0">BTC/XRP</p><p class="tool_0">￥100,120</p></td>
-<td class="tool_0_d"><p class="tool_0">￥120</p><p class="tool_0">0.12%</p></td>
+    <td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTCBCH<p class="tool_0e">BTC</p></td>
+    <td class="tool_0_b"><p class="tool_0">BTC/BCH</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCBCH_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">BCH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCBCH_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->BTCBCH_result()[0] - $GetAPI->BTCBCH_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->BTCBCH_result()[0] - $GetAPI->BTCBCH_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->BTCBCH_result()[0] - $GetAPI->BTCBCH_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
 </tr>
 
 <tr>
-<td class="tool_0_a"><img src="./coin_icon/coin_3.png" class="coin">XRP<p class="tool_0e">リップル</p></td>
-<td class="tool_0_b"><p class="tool_0">XRP/QASH</p><p class="tool_0">￥100,000</p></td>
-<td class="tool_0_c"><p class="tool_0">QASH/JPY</p><p class="tool_0">￥100,179</p></td>
-<td class="tool_0_d"><p class="tool_0">￥179</p><p class="tool_0">0.18%</p></td>
+<td class="tool_0_a"><img src="./coin_icon/coin_2.png" class="coin">ETHBTC<p class="tool_0e">ETH</p></td>
+<td class="tool_0_b"><p class="tool_0">ETH/BTC</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCETH_result()[1]) ?></p></td>
+<td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCETH_result()[0]) ?></p></td>
+
+<td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->BTCETH_result()[0] - $GetAPI->BTCETH_result()[1]; ?></p><p class="tool_0"><?php
+     if(!empty($_POST["investment_value"]))
+     {
+        echo sprintf('%.2f',(($GetAPI->BTCETH_result()[0] - $GetAPI->BTCETH_result()[1]) / $_POST["investment_value"]) * 100);
+     }
+     else
+     {
+         echo sprintf('%.2f',((($GetAPI->BTCETH_result()[0] - $GetAPI->BTCETH_result()[1]) / 100000) * 100));
+     }
+             ?>%</p></td>
 </tr>
 
 <tr>
-<td class="tool_0_a"><img src="./coin_icon/coin_26.png" class="coin">QASH<p class="tool_0e">キャッシュ</p></td>
-<td class="tool_0_b"><p class="tool_0">QASH/ETH</p><p class="tool_0">￥100,000</p></td>
-<td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥100,170</p></td>
-<td class="tool_0_d"><p class="tool_0">￥170</p><p class="tool_0">0.17%</p></td>
+    <td class="tool_0_a"><img src="./coin_icon/coin_2.png" class="coin">ETHQASH<p class="tool_0e">ETH</p></td>
+    <td class="tool_0_b"><p class="tool_0">ETH/QASH</p><p class="tool_0">￥<?php echo number_format($GetAPI->ETHQASH_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">QASH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->ETHQASH_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->ETHQASH_result()[0] - $GetAPI->ETHQASH_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->ETHQASH_result()[0] - $GetAPI->ETHQASH_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->ETHQASH_result()[0] - $GetAPI->ETHQASH_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
+
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_3.png" class="coin">XRPBTC<p class="tool_0e">XRP</p></td>
+    <td class="tool_0_b"><p class="tool_0">BTC/ETH</p><p class="tool_0">￥<?php echo number_format($GetAPI->XRPBTC_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->XRPBTC_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->XRPBTC_result()[0] - $GetAPI->XRPBTC_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->XRPBTC_result()[0] - $GetAPI->XRPBTC_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->XRPBTC_result()[0] - $GetAPI->XRPBTC_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_3.png" class="coin">XRPQASH<p class="tool_0e">XRP</p></td>
+    <td class="tool_0_b"><p class="tool_0">XRP/QASH</p><p class="tool_0">￥<?php echo number_format($GetAPI->QASHXRP_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">QASH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->ETHQASH_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->ETHQASH_result()[0] - $GetAPI->QASHXRP_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->ETHQASH_result()[0] - $GetAPI->QASHXRP_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->ETHQASH_result()[0] - $GetAPI->QASHXRP_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_4.png" class="coin">BCHBTC<p class="tool_0e">BCH</p></td>
+    <td class="tool_0_b"><p class="tool_0">BCH/BTC</p><p class="tool_0">￥<?php echo number_format($GetAPI->BCHBTC_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">BCH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->BCHBTC_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->BCHBTC_result()[0] - $GetAPI->BCHBTC_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->BCHBTC_result()[0] - $GetAPI->BCHBTC_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->BCHBTC_result()[0] - $GetAPI->BCHBTC_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
+
+
+
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_26.png" class="coin">QASHBTC<p class="tool_0e">QASH</p></td>
+    <td class="tool_0_b"><p class="tool_0">QASH/BTC</p><p class="tool_0">￥<?php echo number_format($GetAPI->QASHBTC_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">QASH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->QASHBTC_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->QASHBTC_result()[0] - $GetAPI->QASHBTC_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->QASHBTC_result()[0] - $GetAPI->QASHBTC_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->QASHBTC_result()[0] - $GetAPI->QASHBTC_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
+
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_26.png" class="coin">QASHETH<p class="tool_0e">QASH</p></td>
+    <td class="tool_0_b"><p class="tool_0">QASH/ETH</p><p class="tool_0">￥<?php echo number_format($GetAPI->QASHETH_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">ETH/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->QASHETH_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->QASHETH_result()[0] - $GetAPI->QASHETH_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->QASHETH_result()[0] - $GetAPI->QASHETH_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->QASHETH_result()[0] - $GetAPI->QASHETH_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
+</tr>
+
+<tr>
+    <td class="tool_0_a"><img src="./coin_icon/coin_26.png" class="coin">QASHXRP<p class="tool_0e">QASH</p></td>
+    <td class="tool_0_b"><p class="tool_0">QASH/XRP</p><p class="tool_0">￥<?php echo number_format($GetAPI->QASHXRP_result()[1]) ?></p></td>
+    <td class="tool_0_c"><p class="tool_0">XRP/JPY</p><p class="tool_0">￥<?php echo number_format($GetAPI->BTCXRP_result()[0]) ?></p></td>
+    <td class="tool_0_d"><p class="tool_0">￥<?php echo $GetAPI->BTCXRP_result()[0] - $GetAPI->QASHXRP_result()[1]; ?></p><p class="tool_0"><?php
+            if(!empty($_POST["investment_value"]))
+            {
+                echo sprintf('%.2f',(($GetAPI->BTCXRP_result()[0] - $GetAPI->QASHXRP_result()[1]) / $_POST["investment_value"]) * 100);
+            }
+            else
+            {
+                echo sprintf('%.2f',((($GetAPI->BTCXRP_result()[0] - $GetAPI->QASHXRP_result()[1]) / 100000) * 100));
+            }
+            ?>%</p></td>
 </tr>
 
 <tr><td class="tool_0_space" colspan="4"></td></tr>
 <tr><td class="tool_0_title" colspan="4">最大価格差</td></tr>
-
-<tr>
-<td class="tool_0_a"><img src="./coin_icon/coin_1.png" class="coin">BTC<p class="tool_0e">ビットコイン</p></td>
-<td class="tool_0_b"><p class="tool_0">BTC/XRP</p><p class="tool_0">￥100,000</p></td>
-<td class="tool_0_c"><p class="tool_0">XRP/JPY</p><p class="tool_0">￥100,387</p></td>
-<td class="tool_0_d"><p class="tool_0">￥387</p><p class="tool_0">0.39%</p></td>
-</tr>
-
 </tbody></table>
 
 
@@ -149,7 +301,9 @@ if($m != 'list'){
 
 </form>
 <?php 
+
 }
+
 ?>
 
 
